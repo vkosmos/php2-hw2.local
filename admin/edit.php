@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . '/../autoload.php';
+include __DIR__ . '/../App/autoload.php';
 
 use App\Models\Article;
 
