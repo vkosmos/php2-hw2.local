@@ -19,7 +19,7 @@
         <?php foreach($data as $item): ?>
             <li class="news-list__item">
                 <p class="news-list__text">
-                    <?=$item->title;?>
+                    <b><?=$item->title;?></b>
                 </p>
                 <p class="news-list__links">
                     <a class="button" href="/article.php?id=<?=$item->id?>">Подробнее</a>

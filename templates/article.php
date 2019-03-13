@@ -11,6 +11,12 @@
 </head>
 <body>
 <h1>Новость подробно</h1>
+
+<p>
+    <a class="button" href="index.php">Вернуться к списку новостей</a>
+</p>
+
+
 <?php
     if (false === $article){
 ?>
@@ -28,9 +34,6 @@
         <p><?=$article->content;?></p>
     </article>
 
-    <p>
-        <a href="index.php">Вернуться к списку новостей</a>
-    </p>
 
 </body>
 </html>
