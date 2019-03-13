@@ -12,14 +12,17 @@
 <body>
     <h1>Список новостей</h1>
 
+    <p><a class="button" href="/admin/">Особо секретная админка</a></p>
+
     <ul class="news-list">
 
         <?php foreach($data as $item): ?>
             <li class="news-list__item">
                 <p class="news-list__text">
                     <?=$item->title;?>
-                    <br>
-                    <a href="/article.php?id=<?=$item->id?>">Подробнее</a>
+                </p>
+                <p class="news-list__links">
+                    <a class="button" href="/article.php?id=<?=$item->id?>">Подробнее</a>
                 </p>
             </li>
         <?php endforeach; ?>

@@ -2,13 +2,15 @@
 
 namespace App;
 
+use App\Config;
+
 class Db
 {
     protected $dbh;
 
     public function __construct()
     {
-        $config = \App\Config::getInstance();
+        $config = Config::getInstance();
 
         $this->dbh = new \PDO(
             'mysql:host=' . $config->getData()['db']['host'] . ';dbname=' . $config->getData()['db']['dbname'],

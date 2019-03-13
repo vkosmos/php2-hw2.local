@@ -15,3 +15,21 @@
     margin: 0;
 }
 
+.news-list__links {
+    margin: 10px 0 0 0;
+}
+
+.news-list__links a {
+    padding-right: 10px;
+}
+
+.button {
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: #444;
+    color: #fff;
+}
+
+.button:hover{
+    background-color: red;
+}
