@@ -6,14 +6,15 @@ class Db
 {
     protected $dbh;
 
-    protected const HOST = 'localhost';
-    protected const DBNAME = 'php2';
-    protected const LOGIN = 'root';
-    protected const PASSWORD = '';
-
     public function __construct()
     {
-        $this->dbh = new \PDO('mysql:host=' . static::HOST . ';dbname=' . static::DBNAME, static::LOGIN, static::PASSWORD);
+        $config = \App\Config::getInstance();
+
+        $this->dbh = new \PDO(
+            'mysql:host=' . $config->getData()['db']['host'] . ';dbname=' . $config->getData()['db']['dbname'],
+            $config->getData()['db']['user'],
+            $config->getData()['db']['password']
+        );
 
         //Данная строчка внесена, чтобы справиться с ошибкой PDO при подстановке параметров в запросы с LIMIT
         $this->dbh->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
