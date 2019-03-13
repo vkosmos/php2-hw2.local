@@ -78,7 +78,6 @@ abstract class Model
             ' WHERE 
             id = :id';
 
-//        debug($sql);
         $db->execute($sql, $data);
     }
 
@@ -90,6 +89,16 @@ abstract class Model
         $data = [':id' => $this->id];
 
         $db->execute($sql, $data);
+    }
+
+    public function save()
+    {
+        if (isset($this->id)){
+            $this->update();
+        }
+        else{
+            $this->insert();
+        }
     }
 
 }
