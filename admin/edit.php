@@ -14,7 +14,9 @@ if ('POST' === $_SERVER['REQUEST_METHOD']){
     header('Location: ' . '/admin/');
 }
 
-$id = $_GET['id'];
-$article = Article::findById($id);
+if (isset($_GET['id'])){
+    $id = $_GET['id'];
+    $article = Article::findById($id);
+}
 
 include __DIR__ . '/../templates/admin/edit.php';
