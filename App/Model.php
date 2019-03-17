@@ -95,8 +95,7 @@ abstract class Model
     {
         if (isset($this->id)){
             $this->update();
-        }
-        else{
+        }else{
             $this->insert();
         }
     }
