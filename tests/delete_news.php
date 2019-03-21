@@ -10,10 +10,9 @@ $dbh = new Db();
 $sql = 'DELETE FROM users WHERE id = (SELECT x.id FROM (SELECT MAX(users.id) AS id FROM users) x)';
 $params = [];
 
-if ( $dbh->execute($sql, $params) ) {
+if ( $dbh->execute($sql, $params) ){
     echo 'Последний добавленный пользователь был успешно удален.';
-}
-else{
+}else{
     echo('Ошибка при удалении последнего пользователя.');
 }
 

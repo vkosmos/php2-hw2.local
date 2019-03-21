@@ -13,10 +13,9 @@ $email = random_str(5) . '@' . random_str(5) . '.com';
 $password = random_str(10);
 $params = [':e' => $email, ':p' => $password];
 
-if ( $dbh->execute($sql, $params) ) {
+if ( $dbh->execute($sql, $params) ){
     echo 'Новый случайный пользователь успешно добавлен. Проверьте таблицу users.';
-}
-else {
+}else{
     echo('Ошибка при добавлении нового случайного пользователя.');
 }
 

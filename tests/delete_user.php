@@ -10,10 +10,9 @@ $dbh = new Db();
 $sql = 'DELETE FROM news WHERE id = (SELECT x.id FROM (SELECT MAX(news.id) AS id FROM news) x)';
 $params = [];
 
-if ( $dbh->execute($sql, $params) ) {
+if ( $dbh->execute($sql, $params) ){
     echo 'Последняя добавленная новость была успешно удалена.';
-}
-else{
+}else{
     echo('Ошибка при удалении последней новости.');
 }
 

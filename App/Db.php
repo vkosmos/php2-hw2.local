@@ -29,8 +29,7 @@ class Db
 
         if (null === $class){
             $sth->setFetchMode(\PDO::FETCH_ASSOC);
-        }
-        else {
+        }else {
             $sth->setFetchMode(\PDO::FETCH_CLASS, $class);
         }
         return $sth->fetchAll();

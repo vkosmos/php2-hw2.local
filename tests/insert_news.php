@@ -13,10 +13,9 @@ $title = random_str(100);
 $content = random_str(1000);
 $params = [':t' => $title, ':c' => $content];
 
-if ( $dbh->execute($sql, $params) ) {
+if ( $dbh->execute($sql, $params) ){
     echo 'Новая случайная новость успешно добавлена. Проверьте таблицу news.';
-}
-else {
+}else{
     echo('Ошибка при добавлении новой случайной новости.');
 }
 
