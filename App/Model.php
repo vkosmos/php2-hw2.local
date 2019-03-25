@@ -64,12 +64,11 @@ abstract class Model
         $data = [];
 
         foreach ($props as $key => $value){
+            $data[':' . $key] = $value;
             if ('id' == $key){
-                $data[':id'] = $value;
                 continue;
             }
-            $binds[] = $key . '=' . ':' . $key;
-            $data[':' . $key] = $value;
+            $binds[] = $key . '=:' . $key;
         }
 
         $sql = 'UPDATE ' .
