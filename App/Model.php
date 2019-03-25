@@ -42,7 +42,6 @@ abstract class Model
             }
             $fields[] = $key;
             $binds[] = ':' . $key;
-            $names[] = $value;
             $data[':' . $key] = $value;
         }
 
@@ -59,22 +58,24 @@ abstract class Model
     {
         $db = new Db();
 
-        $fields = get_object_vars($this);
+        $props = get_object_vars($this);
+
+        $binds = [];
         $data = [];
-        $names = [];
-        
-        foreach ($fields as $key => $value){
+
+        foreach ($props as $key => $value){
             if ('id' == $key){
                 $data[':id'] = $value;
                 continue;
             }
-            $names[] = $key . '=' . '\'' . $value . '\'';
+            $binds[] = $key . '=' . ':' . $key;
+            $data[':' . $key] = $value;
         }
 
         $sql = 'UPDATE ' .
             static::TABLE . '
             SET ' .
-            implode(',', $names) .
+            implode(',', $binds) .
             ' WHERE 
             id = :id';
 
