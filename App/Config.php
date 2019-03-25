@@ -5,7 +5,8 @@ namespace App;
 class Config
 {
     protected static $_instance = null;
-    protected static $data = [];
+    protected const CONFIGPATH = __DIR__ . '/config_data.php';
+    public $data = [];
 
     public static function getInstance()
     {
@@ -17,11 +18,7 @@ class Config
 
     protected function __construct()
     {
-        self::$data = include __DIR__ . '\config_data.php';
+        $this->data = require self::CONFIGPATH;
     }
 
-    public function getData()
-    {
-        return self::$data;
-    }
 }
